@@ -41,28 +41,36 @@ const ChanellListContainer = () => {
   return (
     <div>
       <SideBar>s</SideBar>
-      <div className='channel-list__list__wrapper'>
+      <div className="channel-list__list__wrapper">
         <Companyheader></Companyheader>
         <ChannelSearch></ChannelSearch>
-        <ChannelList 
-        filters={{}}
-        channelRenderFilterFn={()=>{}}
-        List={(listprops)=>(
-          <TeamChannelList 
-          {...listprops}
-          type="team"
-          />
 
-        )}
-
-        
+        <ChannelList
+          filters={{}}
+          channelRenderFilterFn={() => {}}
+          List={(listprops) => <TeamChannelList {...listprops} type="team" />}
+          Preview={(previewprops) => (
+            <TeamChannelPreview
+              {...previewprops}
+              type="team"
+            ></TeamChannelPreview>
+          )}
         ></ChannelList>
 
+        <ChannelList
+          filters={{}}
+          channelRenderFilterFn={() => {}}
+          List={(listprops) => <TeamChannelList {...listprops} type="messaging" />}
+          Preview={(previewprops) => (
+            <TeamChannelPreview
+              {...previewprops}
+              type="messaging"
+            ></TeamChannelPreview>
+          )}
+        ></ChannelList>
       </div>
-
-
     </div>
-  )
+  );
 }
 
 export default ChanellListContainer
